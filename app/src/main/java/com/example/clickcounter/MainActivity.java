@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       Button plusz= findViewById(R.id.plusz);
-       Button minusz= findViewById(R.id.minusz);
-       TextView szam=findViewById(R.id.szam);
+        plusz= findViewById(R.id.plusz);
+        minusz= findViewById(R.id.minusz);
+        szam=findViewById(R.id.szam);
 
        plusz.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -29,18 +29,18 @@ public class MainActivity extends AppCompatActivity {
                int a =Integer.parseInt(szam.getText().toString()) ;
 
                a++;
-               szam.setText(a);
+               szam.setText(String.valueOf(a));
                szam.setTextColor(color());
            }
        });
 
-        plusz.setOnClickListener(new View.OnClickListener() {
+        minusz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int a =Integer.parseInt(szam.getText().toString()) ;
 
                 a--;
-                szam.setText(a);
+                szam.setText(String.valueOf(a));
                 szam.setTextColor(color());
             }
         });
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int color(){
-        if (szam.getText().equals("0")){
+        if (Integer.parseInt(szam.getText().toString())==0){
             return Color.BLUE;
         }else if(Integer.parseInt(szam.getText().toString())<0){
             return Color.RED;
